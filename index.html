@@ -1,0 +1,1560 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="P.S. Woodworks — Handcrafted sculpture and assemblage art made from reclaimed timber, salvaged metal, and cast-off materials. Custom commissions available.">
+<meta name="keywords" content="reclaimed wood art, wood sculpture, assemblage art, custom furniture, handcrafted, eco art">
+<meta name="author" content="P.S. Woodworks">
+<meta property="og:title" content="P.S. Woodworks — Handcrafted Art from Reclaimed Materials">
+<meta property="og:description" content="Sculpture and assemblage reformed from reclaimed timber and salvaged materials.">
+<meta property="og:type" content="website">
+<title>P.S. Woodworks — Handcrafted Art from Reclaimed Materials</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="img">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Cinzel:wght@400;600;700&family=IM+Fell+English:ital@0;1&family=Josefin+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    /* Nature palette — alive and grounded */
+    --pine:       #1a2e1a;
+    --forest:     #243b24;
+    --moss:       #3d5c30;
+    --fern:       #4f7042;
+    --sage:       #7a9e6a;
+    --lichen:     #a8bc8a;
+    --meadow:     #c8d8a8;
+
+    /* Earth / wood tones */
+    --loam:       #2c1f0e;
+    --bark:       #3e2a10;
+    --cedar:      #5c3d18;
+    --amber:      #8b5e1a;
+    --honey:      #b8832a;
+
+    /* Lake / water blues */
+    --depth:      #0d1e2a;
+    --lake:       #1a3444;
+    --dusk-blue:  #2a4a5e;
+    --mist:       #5c7a8a;
+    --fog:        #8aacb8;
+
+    /* Gold accents — the flair */
+    --gold:       #c9993a;
+    --gilt:       #e8c060;
+    --pale-gold:  #f0d898;
+
+    /* Parchment / bone for text */
+    --parchment:  #f0e8d0;
+    --cream:      #e8ddc0;
+    --aged:       #c8b890;
+
+    /* The shadow in the trees — dark accents, never dominant */
+    --shadow:     #080f08;
+    --murk:       #111a0a;
+    --blood-dark: rgba(60,10,5,0.4);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--murk);
+    color: var(--parchment);
+    font-family: 'IM Fell English', Georgia, serif;
+    overflow-x: hidden;
+  }
+
+  /* Subtle grain over everything */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.07'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 999;
+    opacity: 0.5;
+    mix-blend-mode: multiply;
+  }
+
+  /* ────────────────────────────────
+     NAVIGATION
+  ──────────────────────────────── */
+  nav {
+    position: fixed;
+    top: 0; width: 100%;
+    z-index: 800;
+    padding: 1.4rem 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(to bottom, rgba(8,15,8,0.92) 0%, transparent 100%);
+  }
+
+  .nav-wordmark {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-decoration: none;
+    line-height: 1;
+  }
+
+  .nav-wordmark .ps {
+    font-family: 'Cinzel', serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    color: var(--gilt);
+    text-shadow: 0 0 18px rgba(232,192,96,0.35);
+  }
+
+  .nav-wordmark .woodworks {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 0.6rem;
+    font-weight: 300;
+    letter-spacing: 0.45em;
+    text-transform: uppercase;
+    color: var(--lichen);
+    margin-top: 1px;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2.8rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 400;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--aged);
+    text-decoration: none;
+    transition: color 0.3s;
+    position: relative;
+  }
+
+  .nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -3px; left: 0; right: 0;
+    height: 1px;
+    background: var(--gold);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s;
+  }
+
+  .nav-links a:hover { color: var(--pale-gold); }
+  .nav-links a:hover::after { transform: scaleX(1); }
+
+  /* ────────────────────────────────
+     HERO — the lakeside clearing
+  ──────────────────────────────── */
+  .hero {
+    min-height: 100vh;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 5rem;
+    overflow: hidden;
+  }
+
+  /* Layered nature atmosphere */
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background:
+      /* lake shimmer at bottom */
+      radial-gradient(ellipse 100% 40% at 50% 110%, rgba(26,52,68,0.8) 0%, transparent 60%),
+      /* treeline left */
+      radial-gradient(ellipse 50% 80% at -5% 60%, rgba(26,46,26,0.9) 0%, transparent 55%),
+      /* treeline right */
+      radial-gradient(ellipse 40% 70% at 105% 55%, rgba(36,59,36,0.85) 0%, transparent 50%),
+      /* golden hour center glow */
+      radial-gradient(ellipse 60% 50% at 55% 45%, rgba(139,94,26,0.18) 0%, transparent 65%),
+      /* murky sky */
+      linear-gradient(180deg,
+        #0a1408 0%,
+        #111e0e 25%,
+        #1a2e1a 55%,
+        #1a3444 80%,
+        #0d1e2a 100%
+      );
+  }
+
+  /* Tree silhouettes — SVG injected via pseudo */
+  .hero-trees {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  /* Mist layer */
+  .hero-mist {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 35%;
+    background: linear-gradient(to top,
+      rgba(26,52,68,0.55) 0%,
+      rgba(92,122,138,0.15) 40%,
+      transparent 100%
+    );
+    z-index: 2;
+    animation: drift 8s ease-in-out infinite alternate;
+  }
+
+  @keyframes drift {
+    0%   { transform: translateX(-8px) scaleX(1.01); opacity: 0.8; }
+    100% { transform: translateX(8px)  scaleX(0.99); opacity: 1; }
+  }
+
+  /* The "something in the woods" flicker — ultra subtle, blink-and-miss */
+  .hero::after {
+    content: '';
+    position: absolute;
+    right: 12%;
+    top: 38%;
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    background: rgba(255, 80, 40, 0.9);
+    box-shadow: 0 0 8px 3px rgba(255,60,20,0.3);
+    z-index: 5;
+    animation: eyeflicker 15s infinite;
+  }
+
+  @keyframes eyeflicker {
+    0%, 89%, 91%, 93%, 100% { opacity: 0; }
+    90%, 92% { opacity: 1; }
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 10;
+    max-width: 700px;
+  }
+
+  .hero-eyebrow {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 0.68rem;
+    font-weight: 300;
+    letter-spacing: 0.45em;
+    text-transform: uppercase;
+    color: var(--sage);
+    margin-bottom: 1.8rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .hero-eyebrow::before {
+    content: '';
+    width: 30px; height: 1px;
+    background: var(--gold);
+    opacity: 0.7;
+  }
+
+  /* The big serif title — warm, crafted, organic */
+  .hero-title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-weight: 900;
+    font-size: clamp(3.5rem, 9vw, 8rem);
+    line-height: 1.0;
+    letter-spacing: -0.02em;
+    margin-bottom: 0.2em;
+  }
+
+  .hero-title .ps-mark {
+    display: block;
+    color: var(--gilt);
+    font-style: italic;
+    text-shadow:
+      0 0 40px rgba(232,192,96,0.25),
+      2px 3px 0 rgba(10,20,8,0.6);
+  }
+
+  .hero-title .woodworks-mark {
+    display: block;
+    color: var(--parchment);
+    text-shadow: 2px 3px 0 rgba(8,15,8,0.7);
+    -webkit-text-stroke: 1px rgba(200,184,144,0.15);
+  }
+
+  /* Gold ornamental rule */
+  .hero-ornament {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 1.8rem 0;
+  }
+
+  .hero-ornament::before,
+  .hero-ornament::after {
+    content: '';
+    flex: 1;
+    max-width: 80px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold));
+  }
+
+  .hero-ornament::after {
+    background: linear-gradient(-90deg, transparent, var(--gold));
+  }
+
+  .hero-ornament span {
+    font-family: 'Cinzel', serif;
+    font-size: 0.9rem;
+    color: var(--gold);
+    letter-spacing: 0.1em;
+  }
+
+  .hero-sub {
+    font-family: 'IM Fell English', Georgia, serif;
+    font-style: italic;
+    font-size: 1.1rem;
+    line-height: 1.85;
+    color: var(--aged);
+    max-width: 480px;
+    margin-bottom: 3rem;
+  }
+
+  .hero-cta {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    font-family: 'Cinzel', serif;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--shadow);
+    background: linear-gradient(135deg, var(--gilt) 0%, var(--gold) 100%);
+    padding: 0.95rem 2.2rem;
+    text-decoration: none;
+    border-radius: 1px;
+    box-shadow: 0 4px 20px rgba(201,153,58,0.3), inset 0 1px 0 rgba(255,255,255,0.2);
+    transition: box-shadow 0.3s, transform 0.2s;
+    display: inline-block;
+  }
+
+  .btn-primary:hover {
+    box-shadow: 0 6px 30px rgba(201,153,58,0.5), inset 0 1px 0 rgba(255,255,255,0.25);
+    transform: translateY(-1px);
+  }
+
+  .btn-ghost {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 300;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--lichen);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(168,188,138,0.4);
+    padding-bottom: 2px;
+    transition: color 0.2s, border-color 0.2s;
+  }
+
+  .btn-ghost:hover {
+    color: var(--pale-gold);
+    border-color: var(--gold);
+  }
+
+  .hero-scroll {
+    position: absolute;
+    bottom: 2.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.6rem;
+  }
+
+  .hero-scroll span {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 0.6rem;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: rgba(168,188,138,0.5);
+  }
+
+  .hero-scroll-line {
+    width: 1px;
+    height: 40px;
+    background: linear-gradient(to bottom, var(--gold), transparent);
+    animation: scrollpulse 2s ease-in-out infinite;
+  }
+
+  @keyframes scrollpulse {
+    0%, 100% { opacity: 0.4; transform: scaleY(1); }
+    50% { opacity: 1; transform: scaleY(1.2); }
+  }
+
+  /* ────────────────────────────────
+     SECTION UTILITY
+  ──────────────────────────────── */
+  .section-tag {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 0.65rem;
+    font-weight: 300;
+    letter-spacing: 0.45em;
+    text-transform: uppercase;
+    color: var(--sage);
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    margin-bottom: 1.2rem;
+  }
+
+  .section-tag::before {
+    content: '';
+    width: 20px; height: 1px;
+    background: var(--gold);
+  }
+
+  .gold-rule {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    margin: 1.5rem 0 2.5rem;
+  }
+
+  .gold-rule::before, .gold-rule::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, rgba(201,153,58,0.5), transparent);
+  }
+
+  .gold-rule::after {
+    background: linear-gradient(-90deg, rgba(201,153,58,0.5), transparent);
+  }
+
+  .gold-rule .diamond {
+    color: var(--gold);
+    font-size: 0.6rem;
+    letter-spacing: 0.3em;
+  }
+
+  /* ────────────────────────────────
+     PHILOSOPHY — the clearing
+  ──────────────────────────────── */
+  #philosophy {
+    padding: 9rem 5rem;
+    position: relative;
+    background:
+      radial-gradient(ellipse 80% 60% at 50% 50%, rgba(61,92,48,0.12) 0%, transparent 70%),
+      linear-gradient(180deg, var(--murk) 0%, #0e1a0c 50%, var(--murk) 100%);
+    overflow: hidden;
+  }
+
+  /* Watermark — barely visible, like bark texture */
+  #philosophy::before {
+    content: 'P.S.';
+    position: absolute;
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 28vw;
+    font-weight: 900;
+    color: rgba(61,92,48,0.05);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -52%);
+    pointer-events: none;
+    letter-spacing: -0.05em;
+  }
+
+  .philosophy-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 7rem;
+    align-items: center;
+    position: relative;
+  }
+
+  .philosophy-text h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.2rem, 4.5vw, 3.8rem);
+    font-weight: 700;
+    line-height: 1.15;
+    color: var(--parchment);
+    margin-bottom: 2.2rem;
+  }
+
+  .philosophy-text h2 em {
+    font-style: italic;
+    color: var(--gilt);
+    display: block;
+  }
+
+  .philosophy-text p {
+    font-size: 1.05rem;
+    line-height: 1.95;
+    color: var(--aged);
+    margin-bottom: 1.6rem;
+  }
+
+  /* The aside — like a camp notice board */
+  .philosophy-aside {
+    border: 1px solid rgba(201,153,58,0.25);
+    padding: 3rem 2.5rem;
+    position: relative;
+    background: rgba(26,46,26,0.3);
+  }
+
+  /* Gold corner ornaments */
+  .philosophy-aside::before,
+  .philosophy-aside::after {
+    content: '◆';
+    position: absolute;
+    font-size: 0.8rem;
+    color: var(--gold);
+    opacity: 0.7;
+  }
+
+  .philosophy-aside::before { top: -0.5rem; left: -0.5rem; }
+  .philosophy-aside::after  { bottom: -0.5rem; right: -0.5rem; }
+
+  .aside-heading {
+    font-family: 'Cinzel', serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 2.5rem;
+    text-align: center;
+  }
+
+  .aside-stat {
+    text-align: center;
+    padding: 1.8rem 0;
+    border-bottom: 1px solid rgba(201,153,58,0.15);
+  }
+
+  .aside-stat:last-child { border-bottom: none; }
+
+  .aside-stat .num {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.2rem;
+    font-weight: 900;
+    font-style: italic;
+    color: var(--gilt);
+    line-height: 1;
+    text-shadow: 0 0 25px rgba(232,192,96,0.2);
+  }
+
+  .aside-stat .desc {
+    font-family: 'IM Fell English', serif;
+    font-style: italic;
+    font-size: 0.92rem;
+    color: var(--aged);
+    margin-top: 0.4rem;
+  }
+
+  /* ────────────────────────────────
+     TICKER — the materials scroll
+  ──────────────────────────────── */
+  .ticker-band {
+    padding: 0.9rem 0;
+    background: var(--forest);
+    border-top: 1px solid rgba(201,153,58,0.2);
+    border-bottom: 1px solid rgba(201,153,58,0.2);
+    overflow: hidden;
+    position: relative;
+  }
+
+  .ticker-band::before,
+  .ticker-band::after {
+    content: '';
+    position: absolute;
+    top: 0; bottom: 0;
+    width: 120px;
+    z-index: 2;
+  }
+
+  .ticker-band::before { left: 0; background: linear-gradient(90deg, var(--forest), transparent); }
+  .ticker-band::after  { right: 0; background: linear-gradient(-90deg, var(--forest), transparent); }
+
+  .ticker-inner {
+    display: flex;
+    gap: 0;
+    animation: tickermove 35s linear infinite;
+    white-space: nowrap;
+  }
+
+  @keyframes tickermove {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+  }
+
+  .tick {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 0.65rem;
+    font-weight: 300;
+    letter-spacing: 0.38em;
+    text-transform: uppercase;
+    color: var(--lichen);
+    padding: 0 2.5rem;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    gap: 2.5rem;
+  }
+
+  .tick .gem {
+    color: var(--gold);
+    font-size: 0.45rem;
+    vertical-align: middle;
+  }
+
+  /* ────────────────────────────────
+     GALLERY
+  ──────────────────────────────── */
+  #gallery {
+    padding: 7rem 3rem;
+    background:
+      linear-gradient(180deg, var(--murk) 0%, #0c180a 50%, var(--murk) 100%);
+  }
+
+  .gallery-header {
+    max-width: 1200px;
+    margin: 0 auto 3.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+
+  .gallery-header h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+    font-weight: 700;
+    color: var(--parchment);
+  }
+
+  .gallery-header h2 em {
+    color: var(--gilt);
+    font-style: italic;
+  }
+
+  .gallery-count {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--sage);
+  }
+
+  /* Horizontal Scroller */
+  .gallery-scroll-wrap {
+    position: relative;
+  }
+
+  .gallery-scroll-wrap::before,
+  .gallery-scroll-wrap::after {
+    content: '';
+    position: absolute;
+    top: 0; bottom: 24px;
+    width: 80px;
+    z-index: 4;
+    pointer-events: none;
+  }
+
+  .gallery-scroll-wrap::before {
+    left: 0;
+    background: linear-gradient(90deg, #0c180a, transparent);
+  }
+
+  .gallery-scroll-wrap::after {
+    right: 0;
+    background: linear-gradient(-90deg, #0c180a, transparent);
+  }
+
+  .gallery-scroller {
+    display: flex;
+    gap: 0.6rem;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    cursor: grab;
+    padding: 0 3rem 1.5rem;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(201,153,58,0.3) transparent;
+  }
+
+  .gallery-scroller:active { cursor: grabbing; }
+
+  .gallery-scroller::-webkit-scrollbar { height: 4px; }
+  .gallery-scroller::-webkit-scrollbar-track { background: transparent; }
+  .gallery-scroller::-webkit-scrollbar-thumb {
+    background: rgba(201,153,58,0.3);
+    border-radius: 2px;
+  }
+
+  .g-item {
+    flex: 0 0 auto;
+    width: 320px;
+    height: 420px;
+    scroll-snap-align: start;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    display: block;
+  }
+
+  .g-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    filter: saturate(0.75) sepia(0.15);
+    transition: filter 0.6s ease, transform 0.7s ease;
+  }
+
+  .g-item:hover img {
+    filter: saturate(1.05) sepia(0.05);
+    transform: scale(1.04);
+  }
+
+  /* Gold shimmer overlay on hover */
+  .g-item::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg,
+      rgba(201,153,58,0.12) 0%,
+      transparent 50%,
+      rgba(26,52,68,0.3) 100%
+    );
+    opacity: 0;
+    transition: opacity 0.4s;
+    z-index: 2;
+  }
+
+  .g-item:hover::before { opacity: 1; }
+
+  .g-item-info {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    padding: 2rem 1.2rem 1rem;
+    background: linear-gradient(to top, rgba(8,15,8,0.85), transparent);
+    transform: translateY(100%);
+    transition: transform 0.4s ease;
+    z-index: 3;
+  }
+
+  .g-item:hover .g-item-info { transform: translateY(0); }
+
+  .g-item-info span {
+    font-family: 'IM Fell English', serif;
+    font-style: italic;
+    font-size: 0.9rem;
+    color: var(--pale-gold);
+  }
+
+  .gallery-nav {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+
+  .gallery-nav button {
+    font-family: 'Cinzel', serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    color: var(--aged);
+    background: transparent;
+    border: 1px solid rgba(201,153,58,0.3);
+    padding: 0.6rem 1.6rem;
+    cursor: pointer;
+    transition: color 0.2s, border-color 0.2s, background 0.2s;
+  }
+
+  .gallery-nav button:hover {
+    color: var(--gilt);
+    border-color: var(--gold);
+    background: rgba(201,153,58,0.06);
+  }
+
+  /* ────────────────────────────────
+     MANIFESTO BAND
+  ──────────────────────────────── */
+  .manifesto {
+    padding: 6rem 4rem;
+    background:
+      radial-gradient(ellipse 60% 100% at 50% 50%, rgba(36,59,36,0.6) 0%, transparent 70%),
+      linear-gradient(180deg, #0d1e0a 0%, #0e1e10 100%);
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+    border-top: 1px solid rgba(201,153,58,0.15);
+    border-bottom: 1px solid rgba(201,153,58,0.15);
+  }
+
+  /* Faint trees in fog behind the quote */
+  .manifesto::before {
+    content: '🌲🌲🌲🌲🌲';
+    position: absolute;
+    font-size: 10rem;
+    opacity: 0.03;
+    bottom: -2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    letter-spacing: 2rem;
+    pointer-events: none;
+    filter: blur(6px);
+  }
+
+  .manifesto-inner {
+    max-width: 820px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+  }
+
+  /* Gold opening quote mark */
+  .manifesto-inner::before {
+    content: '"';
+    display: block;
+    font-family: 'Playfair Display', serif;
+    font-size: 8rem;
+    line-height: 0.6;
+    color: var(--gold);
+    opacity: 0.3;
+    margin-bottom: 1.5rem;
+  }
+
+  .manifesto blockquote {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: clamp(1.4rem, 3vw, 2.2rem);
+    font-weight: 400;
+    line-height: 1.55;
+    color: var(--parchment);
+    text-shadow: 0 2px 20px rgba(0,0,0,0.5);
+  }
+
+  .manifesto blockquote strong {
+    color: var(--gilt);
+    font-style: normal;
+    font-weight: 700;
+  }
+
+  .manifesto cite {
+    display: block;
+    font-family: 'Cinzel', serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-top: 2rem;
+    font-style: normal;
+  }/* ────────────────────────────────
+     COMMISSION
+  ──────────────────────────────── */
+  #commission {
+    padding: 8rem 5rem;
+    background:
+      radial-gradient(ellipse 70% 70% at 30% 50%, rgba(26,52,68,0.35) 0%, transparent 65%),
+      linear-gradient(180deg, var(--murk) 0%, #0a140e 100%);
+    position: relative;
+  }
+
+  .commission-grid {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 7rem;
+    align-items: start;
+  }
+
+  .commission-left h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.2rem, 4vw, 3.5rem);
+    font-weight: 700;
+    line-height: 1.12;
+    color: var(--parchment);
+    margin-bottom: 1.5rem;
+  }
+
+  .commission-left h2 em {
+    color: var(--gilt);
+    font-style: italic;
+    display: block;
+  }
+
+  .commission-left p {
+    font-size: 1rem;
+    line-height: 1.9;
+    color: var(--aged);
+    margin-bottom: 1.4rem;
+  }
+
+  /* Aged paper form */
+  .commission-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.3rem;
+    background: rgba(26,46,26,0.25);
+    border: 1px solid rgba(201,153,58,0.2);
+    padding: 2.5rem;
+    position: relative;
+  }
+
+  .commission-form::before,
+  .commission-form::after {
+    content: '◆';
+    position: absolute;
+    font-size: 0.7rem;
+    color: var(--gold);
+    opacity: 0.6;
+  }
+
+  .commission-form::before { top: -0.45rem; right: 1rem; }
+  .commission-form::after  { bottom: -0.45rem; left: 1rem; }
+
+  .form-label {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 0.65rem;
+    font-weight: 300;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: var(--sage);
+    margin-bottom: 0.3rem;
+    display: block;
+  }
+
+  .form-field {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .form-field input,
+  .form-field textarea,
+  .form-field select {
+    background: rgba(14,26,12,0.7);
+    border: none;
+    border-bottom: 1px solid rgba(201,153,58,0.35);
+    color: var(--parchment);
+    font-family: 'IM Fell English', Georgia, serif;
+    font-size: 1rem;
+    padding: 0.75rem 0.6rem;
+    outline: none;
+    transition: border-color 0.3s, background 0.3s;
+    -webkit-appearance: none;
+  }
+
+  .form-field input::placeholder,
+  .form-field textarea::placeholder {
+    color: rgba(200,184,144,0.25);
+    font-style: italic;
+  }
+
+  .form-field input:focus,
+  .form-field textarea:focus,
+  .form-field select:focus {
+    border-bottom-color: var(--gilt);
+    background: rgba(26,46,26,0.5);
+  }
+
+  .form-field textarea { resize: vertical; min-height: 110px; }
+
+  .form-field select option { background: var(--bark); }
+
+  .form-btn {
+    font-family: 'Cinzel', serif;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--shadow);
+    background: linear-gradient(135deg, var(--gilt) 0%, var(--gold) 100%);
+    border: none;
+    padding: 1rem 2rem;
+    cursor: pointer;
+    box-shadow: 0 4px 20px rgba(201,153,58,0.25);
+    transition: box-shadow 0.3s, transform 0.2s;
+    align-self: flex-start;
+    margin-top: 0.5rem;
+  }
+
+  .form-btn:hover {
+    box-shadow: 0 6px 30px rgba(201,153,58,0.45);
+    transform: translateY(-1px);
+  }
+
+  /* ────────────────────────────────
+     FOOTER
+  ──────────────────────────────── */
+  footer {
+    padding: 5rem 5rem 3rem;
+    background: var(--pine);
+    border-top: 1px solid rgba(201,153,58,0.2);
+    position: relative;
+    overflow: hidden;
+  }
+
+  footer::after {
+    content: 'P.S.';
+    position: absolute;
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-weight: 900;
+    font-size: 20vw;
+    color: rgba(61,92,48,0.07);
+    bottom: -3rem;
+    right: -2rem;
+    pointer-events: none;
+    line-height: 1;
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 5rem;
+    max-width: 1100px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+  }
+
+  .footer-brand .wordmark {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1.2rem;
+  }
+
+  .footer-brand .wordmark .ps {
+    font-family: 'Cinzel', serif;
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    color: var(--gilt);
+    text-shadow: 0 0 20px rgba(232,192,96,0.25);
+    line-height: 1;
+  }
+
+  .footer-brand .wordmark .ww {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 0.6rem;
+    font-weight: 300;
+    letter-spacing: 0.5em;
+    text-transform: uppercase;
+    color: var(--lichen);
+    margin-top: 3px;
+  }
+
+  .footer-brand p {
+    font-family: 'IM Fell English', serif;
+    font-style: italic;
+    font-size: 0.92rem;
+    line-height: 1.8;
+    color: rgba(168,188,138,0.6);
+    max-width: 280px;
+  }
+
+  .footer-col h4 {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 0.65rem;
+    font-weight: 300;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 1px solid rgba(201,153,58,0.2);
+  }
+
+  .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.85rem; }
+
+  .footer-col ul a {
+    font-family: 'IM Fell English', serif;
+    font-style: italic;
+    font-size: 1rem;
+    color: var(--aged);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .footer-col ul a:hover { color: var(--gilt); }
+
+  .footer-bottom {
+    max-width: 1100px;
+    margin: 3.5rem auto 0;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(201,153,58,0.12);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+  }
+
+  .footer-bottom p {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 0.6rem;
+    font-weight: 300;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: rgba(168,188,138,0.3);
+  }
+
+  /* ────────────────────────────────
+     LIGHTBOX
+  ──────────────────────────────── */
+  .lightbox {
+    position: fixed;
+    inset: 0;
+    background: rgba(8,15,8,0.97);
+    z-index: 9999;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    cursor: zoom-out;
+  }
+
+  .lightbox.open { display: flex; }
+
+  .lightbox img {
+    max-width: 88vw;
+    max-height: 88vh;
+    object-fit: contain;
+    box-shadow: 0 0 80px rgba(201,153,58,0.12), 0 0 200px rgba(0,0,0,0.8);
+  }
+
+  .lb-close {
+    position: absolute;
+    top: 2rem; right: 2rem;
+    font-family: 'Cinzel', serif;
+    font-size: 0.78rem;
+    letter-spacing: 0.2em;
+    color: var(--aged);
+    cursor: pointer;
+    transition: color 0.2s;
+  }
+
+  .lb-close:hover { color: var(--gilt); }
+
+  /* ────────────────────────────────
+     SCROLL REVEAL
+  ──────────────────────────────── */
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.9s ease, transform 0.9s ease;
+  }
+
+  .reveal.in { opacity: 1; transform: translateY(0); }
+
+  /* ────────────────────────────────
+     RESPONSIVE
+  ──────────────────────────────── */
+  @media (max-width: 768px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { display: none; }
+    .hero { padding: 0 1.5rem; min-height: 100svh; }
+    #philosophy { padding: 5rem 1.5rem; }
+    .philosophy-inner { grid-template-columns: 1fr; gap: 3rem; }
+    #gallery { padding: 5rem 1rem; }
+    .gallery-masonry { columns: 2; }
+    #process { padding: 5rem 1.5rem; }
+    .process-steps { grid-template-columns: 1fr 1fr; }
+    .process-steps::before { display: none; }
+    #commission { padding: 5rem 1.5rem; }
+    .commission-grid { grid-template-columns: 1fr; gap: 3rem; }
+    footer { padding: 4rem 1.5rem 2rem; }
+    .footer-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-wordmark">
+    <span class="ps">P.S.</span>
+    <span class="woodworks">Woodworks</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#process">Process</a></li>
+    <li><a href="#philosophy">About</a></li>
+    <li><a href="#commission">Commission</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+
+  <!-- SVG tree silhouettes -->
+  <svg class="hero-trees" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMax slice" xmlns="http://www.w3.org/2000/svg">
+    <!-- Left treeline -->
+    <polygon points="0,900 60,520 120,900" fill="#0d1a0a" opacity="0.95"/>
+    <polygon points="40,900 110,450 180,900" fill="#0a1508" opacity="0.98"/>
+    <polygon points="100,900 160,480 230,900" fill="#0c1a0a" opacity="0.9"/>
+    <polygon points="0,900 80,540 150,900" fill="#111e0e" opacity="0.7"/>
+    <polygon points="150,900 210,510 280,900" fill="#0d1a0b" opacity="0.95"/>
+    <polygon points="200,900 255,560 320,900" fill="#0b1808" opacity="0.85"/>
+    <polygon points="60,900 130,600 200,900" fill="#12200e" opacity="0.5"/>
+
+    <!-- Right treeline -->
+    <polygon points="1280,900 1340,500 1400,900" fill="#0d1a0a" opacity="0.95"/>
+    <polygon points="1320,900 1370,470 1440,900" fill="#0a1508" opacity="0.98"/>
+    <polygon points="1200,900 1265,520 1340,900" fill="#0c1a0a" opacity="0.9"/>
+    <polygon points="1150,900 1220,550 1290,900" fill="#111e0e" opacity="0.7"/>
+    <polygon points="1250,900 1300,580 1380,900" fill="#0d1a0b" opacity="0.85"/>
+    <polygon points="1380,900 1420,540 1440,900" fill="#0b1808" opacity="0.9"/>
+
+    <!-- Lake reflection at bottom -->
+    <ellipse cx="720" cy="880" rx="680" ry="80" fill="rgba(26,52,68,0.45)"/>
+    <ellipse cx="720" cy="900" rx="580" ry="60" fill="rgba(13,30,42,0.6)"/>
+
+    <!-- Stars (tiny) -->
+    <circle cx="300" cy="80" r="1" fill="rgba(240,216,152,0.6)"/>
+    <circle cx="520" cy="50" r="1.2" fill="rgba(240,216,152,0.5)"/>
+    <circle cx="780" cy="30" r="0.8" fill="rgba(240,216,152,0.7)"/>
+    <circle cx="950" cy="70" r="1" fill="rgba(240,216,152,0.4)"/>
+    <circle cx="1100" cy="40" r="1.2" fill="rgba(240,216,152,0.6)"/>
+    <circle cx="660" cy="110" r="0.7" fill="rgba(240,216,152,0.5)"/>
+    <circle cx="420" cy="130" r="1" fill="rgba(240,216,152,0.3)"/>
+    <circle cx="850" cy="95" r="0.9" fill="rgba(240,216,152,0.5)"/>
+
+    <!-- Moon glow -->
+    <circle cx="780" cy="120" r="35" fill="rgba(240,216,152,0.04)"/>
+    <circle cx="780" cy="120" r="22" fill="rgba(240,216,152,0.07)"/>
+    <circle cx="780" cy="120" r="12" fill="rgba(240,216,152,0.12)"/>
+  </svg>
+
+  <div class="hero-mist"></div>
+
+  <div class="hero-content">
+    <div class="hero-eyebrow">Handcrafted from what remains</div>
+
+    <h1 class="hero-title">
+      <span class="ps-mark">P.S.</span>
+      <span class="woodworks-mark">Woodworks</span>
+    </h1>
+
+    <div class="hero-ornament">
+      <span>◆ &nbsp; ◆ &nbsp; ◆</span>
+    </div>
+
+    <p class="hero-sub">
+      Sculpture and assemblage reformed from reclaimed timber, salvaged metal,
+      and the cast-off material of everyday life — reimagined,
+      and given a shape that was always somewhere inside them.
+    </p>
+
+    <div class="hero-cta">
+      <a href="#gallery" class="btn-primary">View the Work</a>
+      <a href="#commission" class="btn-ghost">Commission a Piece</a>
+    </div>
+  </div>
+
+  <div class="hero-scroll">
+    <span>Scroll</span>
+    <div class="hero-scroll-line"></div>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker-band">
+  <div class="ticker-inner">
+    <span class="tick">Reclaimed Timber <span class="gem">◆</span></span>
+    <span class="tick">Salvaged Hardware <span class="gem">◆</span></span>
+    <span class="tick">Driftwood <span class="gem">◆</span></span>
+    <span class="tick">Antler & Bone <span class="gem">◆</span></span>
+    <span class="tick">Rusted Iron <span class="gem">◆</span></span>
+    <span class="tick">Found Objects <span class="gem">◆</span></span>
+    <span class="tick">Old Growth Wood <span class="gem">◆</span></span>
+    <span class="tick">Pallet & Plank <span class="gem">◆</span></span>
+    <span class="tick">Wire & Chain <span class="gem">◆</span></span>
+    <span class="tick">Landfill Salvage <span class="gem">◆</span></span>
+    <!-- duplicate -->
+    <span class="tick">Reclaimed Timber <span class="gem">◆</span></span>
+    <span class="tick">Salvaged Hardware <span class="gem">◆</span></span>
+    <span class="tick">Driftwood <span class="gem">◆</span></span>
+    <span class="tick">Antler & Bone <span class="gem">◆</span></span>
+    <span class="tick">Rusted Iron <span class="gem">◆</span></span>
+    <span class="tick">Found Objects <span class="gem">◆</span></span>
+    <span class="tick">Old Growth Wood <span class="gem">◆</span></span>
+    <span class="tick">Pallet & Plank <span class="gem">◆</span></span>
+    <span class="tick">Wire & Chain <span class="gem">◆</span></span>
+    <span class="tick">Landfill Salvage <span class="gem">◆</span></span>
+  </div>
+</div>
+
+<!-- PHILOSOPHY -->
+<section id="philosophy">
+  <div class="philosophy-inner">
+    <div class="philosophy-text reveal">
+      <div class="section-tag">The Philosophy</div>
+      <h2>Dead wood <em>still grows</em> in the right hands</h2>
+      <div class="gold-rule"><span class="diamond">◆ ◆ ◆</span></div>
+      <p>
+        Every piece of timber has a history. A pallet that held cargo, a board from
+        a torn-down farmhouse, a branch that fell in a storm — each one carries
+        something. This work is about listening to that, and giving it a new voice.
+      </p>
+      <p>
+        Nothing is wasted here. Everything was put on this earth for a reason —
+        sometimes you just have to find it at the bottom of a skip.
+      </p>
+    </div>
+
+    <div class="philosophy-aside reveal">
+      <div class="aside-heading">By the Numbers</div>
+      <div class="aside-stat">
+        <div class="num">100%</div>
+        <div class="desc">reclaimed & salvaged materials</div>
+      </div>
+      <div class="aside-stat">
+        <div class="num">0</div>
+        <div class="desc">pounds of waste sent to landfill</div>
+      </div>
+      <div class="aside-stat">
+        <div class="num">∞</div>
+        <div class="desc">horror films consumed in the shop</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery">
+  <div class="gallery-header reveal">
+    <div>
+      <div class="section-tag">The Work</div>
+      <h2>Salvaged. Carved. <em>Alive Again.</em></h2>
+    </div>
+    <div class="gallery-count">22 works shown</div>
+  </div>
+
+  <div class="gallery-scroll-wrap">  <div class="gallery-scroller" id="galleryScroller">
+    <div class="g-item" onclick="lb(this)"><img src="img/IMG_1983.webp" srcset="img/IMG_1983-400.webp 400w, img/IMG_1983-800.webp 800w, img/IMG_1983-1200.webp 1200w" sizes="320px" alt="Reclaimed sculpture" width="800" height="600" loading="lazy"><div class="g-item-info"><span>Reclaimed Study No. 1</span></div></div>
+    <div class="g-item" onclick="lb(this)"><img src="img/IMG_1984.webp" srcset="img/IMG_1984-400.webp 400w, img/IMG_1984-800.webp 800w, img/IMG_1984-1200.webp 1200w" sizes="320px" alt="Wood assemblage" width="800" height="600" loading="lazy"><div class="g-item-info"><span>Found Object Assembly</span></div></div>
+    <div class="g-item" onclick="lb(this)"><img src="img/IMG_1985.webp" srcset="img/IMG_1985-400.webp 400w, img/IMG_1985-800.webp 800w, img/IMG_1985-1200.webp 1200w" sizes="320px" alt="Carved figure" width="800" height="1066" loading="lazy"><div class="g-item-info"><span>The Listener</span></div></div>
+    <div class="g-item" onclick="lb(this)"><img src="img/IMG_1986.webp" srcset="img/IMG_1986-400.webp 400w, img/IMG_1986-800.webp 800w, img/IMG_1986-1200.webp 1200w" sizes="320px" alt="Salvaged wood" width="800" height="1066" loading="lazy"><div class="g-item-info"><span>Salvage Series</span></div></div>
+    <div class="g-item" onclick="lb(this)"><img src="img/IMG_1987.webp" srcset="img/IMG_1987-400.webp 400w, img/IMG_1987-800.webp 800w, img/IMG_1987-1200.webp 1200w" sizes="320px" alt="Assemblage" width="800" height="600" loading="lazy"><div class="g-item-info"><span>Assemblage No. 5</span></div></div>
+    <div class="g-item" onclick="lb(this)"><img src="img/IMG_1988.webp" srcset="img/IMG_1988-400.webp 400w, img/IMG_1988-800.webp 800w, img/IMG_1988-1200.webp 1200w" sizes="320px" alt="Relief carving" width="800" height="1066" loading="lazy"><div class="g-item-info"><span>Relief Work</span></div></div>
+    <div class="g-item" onclick="lb(this)"><img src="img/IMG_1989.webp" srcset="img/IMG_1989-400.webp 400w, img/IMG_1989-800.webp 800w, img/IMG_1989-1200.webp 1200w" sizes="320px" alt="Reclaimed form" width="800" height="1066" loading="lazy"><div class="g-item-info"><span>Deadwood Form</span></div></div>
+    <div class="g-item" onclick="lb(this)"><img src="img/IMG_1990.webp" srcset="img/IMG_1990-400.webp 400w, img/IMG_1990-800.webp 800w, img/IMG_1990-1200.webp 1200w" sizes="320px" alt="Sculpture" width="800" height="1066" loading="lazy"><div class="g-item-info"><span>Reanimated</span></div></div>
+    <div class="g-item" onclick="lb(this)"><img src="img/IMG_1991.webp" srcset="img/IMG_1991-400.webp 400w, img/IMG_1991-800.webp 800w, img/IMG_1991-1200.webp 1200w" sizes="320px" alt="Wood figure" width="800" height="600" loading="lazy"><div class="g-item-info"><span>From the Treeline</span></div></div>
+    <div class="g-item" onclick="lb(this)"><img src="img/IMG_1992.webp" srcset="img/IMG_1992-400.webp 400w, img/IMG_1992-800.webp 800w, img/IMG_1992-1200.webp 1200w" sizes="320px" alt="Found object piece" width="800" height="1066" loading="lazy"><div class="g-item-info"><span>The Oracle</span></div></div>
+    <div class="g-item" onclick="lb(this)"><img src="img/IMG_1993.webp" srcset="img/IMG_1993-400.webp 400w, img/IMG_1993-800.webp 800w, img/IMG_1993-1200.webp 1200w" sizes="320px" alt="Carved wood" width="800" height="1066" loading="lazy"><div class="g-item-info"><span>Bark Memory</span></div></div>
+    <div class="g-item" onclick="lb(this)"><img src="img/IMG_1994.webp" srcset="img/IMG_1994-400.webp 400w, img/IMG_1994-800.webp 800w, img/IMG_1994-1200.webp 1200w" sizes="320px" alt="Bone and wood" width="800" height="600" loading="lazy"><div class="g-item-info"><span>Bone & Board</span></div></div>
+    <div class="g-item" onclick="lb(this)"><img src="img/IMG_1995.webp" srcset="img/IMG_1995-400.webp 400w, img/IMG_1995-800.webp 800w, img/IMG_1995-1200.webp 1200w" sizes="320px" alt="Totem piece" width="800" height="1066" loading="lazy"><div class="g-item-info"><span>Scrap Totem</span></div></div>
+    <div class="g-item" onclick="lb(this)"><img src="img/IMG_1996.webp" srcset="img/IMG_1996-400.webp 400w, img/IMG_1996-800.webp 800w, img/IMG_1996-1200.webp 1200w" sizes="320px" alt="Rust and root" width="800" height="1066" loading="lazy"><div class="g-item-info"><span>Rust & Root</span></div></div>
+    <div class="g-item" onclick="lb(this)"><img src="img/IMG_1997.webp" srcset="img/IMG_1997-400.webp 400w, img/IMG_1997-800.webp 800w, img/IMG_1997-1200.webp 1200w" sizes="320px" alt="Wood sculpture" width="800" height="600" loading="lazy"><div class="g-item-info"><span>Deep Woods</span></div></div>
+    <div class="g-item" onclick="lb(this)"><img src="img/IMG_1998.webp" srcset="img/IMG_1998-400.webp 400w, img/IMG_1998-800.webp 800w, img/IMG_1998-1200.webp 1200w" sizes="320px" alt="Carved figure" width="800" height="600" loading="lazy"><div class="g-item-info"><span>The Watcher</span></div></div>
+    <div class="g-item" onclick="lb(this)"><img src="img/IMG_1999.webp" srcset="img/IMG_1999-400.webp 400w, img/IMG_1999-800.webp 800w, img/IMG_1999-1200.webp 1200w" sizes="320px" alt="Assemblage work" width="800" height="1066" loading="lazy"><div class="g-item-info"><span>Lost in the Mist</span></div></div>
+    <div class="g-item" onclick="lb(this)"><img src="img/IMG_2001.webp" srcset="img/IMG_2001-400.webp 400w, img/IMG_2001-800.webp 800w, img/IMG_2001-1200.webp 1200w" sizes="320px" alt="Reclaimed piece" width="800" height="1066" loading="lazy"><div class="g-item-info"><span>Landfill Prophet</span></div></div>
+    <div class="g-item" onclick="lb(this)"><img src="img/IMG_2002.webp" srcset="img/IMG_2002-400.webp 400w, img/IMG_2002-800.webp 800w, img/IMG_2002-1200.webp 1200w" sizes="320px" alt="Nature sculpture" width="800" height="1066" loading="lazy"><div class="g-item-info"><span>Old Growth</span></div></div>
+    <div class="g-item" onclick="lb(this)"><img src="img/IMG_2003.webp" srcset="img/IMG_2003-400.webp 400w, img/IMG_2003-800.webp 800w, img/IMG_2003-1200.webp 1200w" sizes="320px" alt="Wood carving" width="800" height="1066" loading="lazy"><div class="g-item-info"><span>Hollow Vessel</span></div></div>
+    <div class="g-item" onclick="lb(this)"><img src="img/IMG_2004.webp" srcset="img/IMG_2004-400.webp 400w, img/IMG_2004-800.webp 800w, img/IMG_2004-1200.webp 1200w" sizes="320px" alt="Assemblage art" width="800" height="1066" loading="lazy"><div class="g-item-info"><span>Wreckage Study</span></div></div>
+    <div class="g-item" onclick="lb(this)"><img src="img/IMG_2005.webp" srcset="img/IMG_2005-400.webp 400w, img/IMG_2005-800.webp 800w, img/IMG_2005-1200.webp 1200w" sizes="320px" alt="Final work" width="800" height="1066" loading="lazy"><div class="g-item-info"><span>Into the Dark</span></div></div>
+  </div><!-- /.gallery-scroller -->
+  </div><!-- /.gallery-scroll-wrap -->
+
+  <div class="gallery-nav">
+    <button onclick="scrollGallery(-1)">← Prev</button>
+    <button onclick="scrollGallery(1)">Next →</button>
+  </div>
+
+</section>
+
+<!-- MANIFESTO -->
+<div class="manifesto">
+  <div class="manifesto-inner reveal">
+    <blockquote>
+      "Every dead thing is only <strong>resting.</strong>
+      You find it where it fell, you bring it home,
+      and you listen for what it still has left to say."
+    </blockquote>
+    <cite>— P.S. Woodworks</cite>
+  </div>
+</div>
+
+
+<!-- COMMISSION -->
+<section id="commission">
+  <div class="commission-grid">
+    <div class="commission-left reveal">
+      <div class="section-tag">Commissions</div>
+      <h2>Want something<br><em>made for you</em><br>from what remains?</h2>
+      <div class="gold-rule"><span class="diamond">◆ ◆ ◆</span></div>
+      <p>
+        Every commission begins with a conversation. Dark, strange, gothic, or quietly
+        beautiful — P.S. Woodworks will build it from material the world left behind.
+      </p>
+      <p>
+        Custom sculpture, furniture, wall art, and assemblage.
+        Each piece is singular — forged from unrepeatable materials,
+        it can only ever exist once.
+      </p>
+      <p>
+        Good things take time.
+        Beautiful things take longer.
+      </p>
+    </div>
+
+    <div class="reveal">
+      <form class="commission-form" onsubmit="submitForm(event)">
+        <div class="form-field">
+          <label class="form-label">Your Name</label>
+          <input type="text" placeholder="What do they call you?">
+        </div>
+        <div class="form-field">
+          <label class="form-label">Email</label>
+          <input type="email" placeholder="Where shall we write?">
+        </div>
+        <div class="form-field">
+          <label class="form-label">Type of Work</label>
+          <select>
+            <option value="">Choose a category…</option>
+            <option>Sculpture or Figure</option>
+            <option>Wall Relief / Panel</option>
+            <option>Furniture</option>
+            <option>Assemblage / Found Object</option>
+            <option>Installation</option>
+            <option>Something Strange</option>
+          </select>
+        </div>
+        <div class="form-field">
+          <label class="form-label">Tell Me About It</label>
+          <textarea placeholder="Describe the vision. What haunts you. What you want to say without words…"></textarea>
+        </div>
+        <button type="submit" class="form-btn">Send an Inquiry →</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="wordmark">
+        <span class="ps">P.S.</span>
+        <span class="ww">Woodworks</span>
+      </div>
+      <p>Handcrafted art & furniture from reclaimed wood and salvaged materials. Built slowly, with intention, somewhere quiet and a little dark.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Navigate</h4>
+      <ul>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#process">Process</a></li>
+        <li><a href="#philosophy">About</a></li>
+        <li><a href="#commission">Commission</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Find Us</h4>
+      <ul>
+        <li><a href="#">Instagram</a></li>
+        <li><a href="#">Etsy Shop</a></li>
+        <li><a href="#">Email</a></li>
+        <li><a href="#">Spotify Playlist</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© P.S. Woodworks — All rights reserved</p>
+    <p>Nothing wasted &nbsp;◆&nbsp; Everything made by hand</p>
+  </div>
+</footer>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lb-box" onclick="closeLb()">
+  <div class="lb-close">✕ &nbsp; Close</div>
+  <img id="lb-img" src="" alt="">
+</div>
+
+<script>
+  // Scroll reveal
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('in'), i * 70);
+        obs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+  // Lightbox
+  function lb(el) {
+    const img = el.querySelector('img');
+    const highRes = img.srcset.split(',').pop().trim().split(' ')[0];
+    document.getElementById('lb-img').src = highRes;
+    document.getElementById('lb-box').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeLb() {
+    document.getElementById('lb-box').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLb(); });
+
+  // Form
+  function submitForm(e) {
+    e.preventDefault();
+    const btn = e.target.querySelector('.form-btn');
+    btn.textContent = 'Received. We\'ll be in touch. ◆';
+    btn.style.background = 'linear-gradient(135deg, #4f7042, #3d5c30)';
+    btn.style.color = '#f0e8d0';
+    setTimeout(() => {
+      btn.textContent = 'Send an Inquiry →';
+      btn.style.background = '';
+      btn.style.color = '';
+    }, 5000);
+  }
+
+  // Gallery scroll nav
+  function scrollGallery(dir) {
+    const scroller = document.getElementById('galleryScroller');
+    scroller.scrollBy({ left: dir * 660, behavior: 'smooth' });
+  }
+
+  // Drag to scroll
+  const scroller = document.getElementById('galleryScroller');
+  let isDown = false, startX, scrollLeft;
+
+  scroller.addEventListener('mousedown', e => {
+    isDown = true;
+    scroller.classList.add('active');
+    startX = e.pageX - scroller.offsetLeft;
+    scrollLeft = scroller.scrollLeft;
+  });
+
+  scroller.addEventListener('mouseleave', () => { isDown = false; });
+  scroller.addEventListener('mouseup', () => { isDown = false; });
+
+  scroller.addEventListener('mousemove', e => {
+    if (!isDown) return;
+    e.preventDefault();
+    const x = e.pageX - scroller.offsetLeft;
+    const walk = (x - startX) * 1.5;
+    scroller.scrollLeft = scrollLeft - walk;
+  });
+</script>
+</body>
+</html>
